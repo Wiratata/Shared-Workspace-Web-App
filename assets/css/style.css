@@ -1,0 +1,54 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Typography */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background: #f9fafb;
+    color: #111827;
+}
+
+/* Layout Elements */
+header,
+nav,
+footer {
+    padding: 1rem 2rem;
+    background-color: #1f2937;
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.landing-hero {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.landing-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.landing-hero p {
+    font-size: 1.2rem;
+    color: #4b5563;
+}
