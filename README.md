@@ -11,7 +11,7 @@
 
 | Name             | Student ID | GitHub | Role (e.g., Frontend Lead, Backend Dev) |
 | :--------------- | :--------- | :-------------- | :-------------------------------------- |
-| Wiranata Wiritata | [ID]       | [Wiratata](https://github.com/Wiratata) | [Role] |
+| Wiranata Wiritata | 468771       | [Wiratata](https://github.com/Wiratata) | [Role] |
 | Emiliano Martinez Aguilar | 464361     | [canoo](https://github.com/canoo) | [Role] |
 | Rebecca Rottler | [ID]       | [rebecca-2599](https://github.com/rebecca-2599) | [Role] |
 | Ivan Herrera | [ID]       | [ivan-h13](https://github.com/ivan-h13) | [Role] |
