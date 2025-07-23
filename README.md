@@ -32,8 +32,7 @@
 * **Backend:** Node.js, Express
 * **Database:** MongoDB Compass / MongoDB Atlas
 
-
-
-
+## Project Design Website Wireframe
+![Website wireframe](https://github.com/user-attachments/assets/9918c2f3-7c14-4cf2-b859-3f9d9524b47c)
 
 :blush:
