@@ -1,0 +1,67 @@
+:root {
+  --color-primary: #1C1E26;
+  --color-accent-1: #45AEDD;
+  --color-accent-2: #FF6B6B;
+  --color-accent-3: #C2E812;
+  --color-background: #FAFAFA;
+  --color-neutral: #D9D9D9;
+  --color-white: #ffffff;
+  --color-black: #000000;
+}
+
+#navBarContainer{
+  width: 100vw;
+  height: 10vmin;
+  background-color: var(--color-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* position: fixed;
+  z-index: 90; */
+}
+
+#logoContainer, #brandNameContainer{
+  width: 28vw;
+  margin: 1vw;
+  
+}
+
+#brandNameContainer{
+    color: var(--color-white);
+    text-align: center;
+}
+
+#nav{
+  width: 40vw;
+  display: flex;
+  justify-content: flex-end;
+  list-style: none; 
+}
+
+#nav li a {
+  margin: auto 3vw;
+  text-decoration: none;
+  color: var(--color-white);
+}
+
+.logoWhite {
+  width: 10vw;
+  margin-left: 3vw;
+}
+
+
+#footerContainer{
+  width: 100vw;
+  height: 15vw;
+  background-color: var(--color-primary);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#footerText{
+  color: var(--color-white);
+  text-align: center;
+}
+
+
