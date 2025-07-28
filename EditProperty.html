@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Property Page</title>
+    <script src="EditPropertyMain.js" defer></script>
+    <link rel="stylesheet" href="EditPropertyStyle.css">
+</head>
+<body>
+    <body>
+  <header>
+    <nav>
+      <button>Coworking Name</button> <!--Filler-->
+      <button>Dashboard</button>
+      <button>Sign Out</button>
+    </nav>
+  </header>
+  <main>
+    <h1>Edit Properties</h1>
+    <form id="property-form">
+      <label>Property Name</label>
+      <input type="text" placeholder="e.g. Downtown Business Hub"/>
+
+      <label>Address</label>
+      <input type="text" placeholder="e.g. 123 Main St"/>
+
+      <label>Neighborhood</label>
+      <input type="text" placeholder="e.g. Inglewood"/>
+
+      <label>Square Footage</label>
+      <input type="text" placeholder="e.g. 1200 sq ft"/>
+
+      <label>Parking Garage Available</label>
+      <div class="radio-group">
+        <label><input type="radio" name="parking" value="yes" /> Yes</label>
+        <label><input type="radio" name="parking" value="no" /> No</label>
+      </div>
+
+      <label>Public Transit Access</label>
+      <div class="radio-group">
+        <label><input type="radio" name="transit" value="yes" /> Yes</label>
+        <label><input type="radio" name="transit" value="no" /> No</label>
+      </div>
+
+      <label>Upload Photos</label>
+      <input type="file" id="photo-input" multiple />
+      <div id="photo-preview"></div>
+
+      <label>Additional Notes</label>
+      <textarea placeholder="Natural light, whiteboard included, etc."></textarea>
+
+      <button type="submit">Save Property</button>
+    </form>
+  </main>
+  <footer>
+    <p>&copy; <span id="year"></span> Rebecca</p> <!--Change once complete-->
+  </footer>
+</body>
+</html>
