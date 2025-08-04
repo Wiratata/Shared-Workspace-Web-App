@@ -47,13 +47,17 @@
     border-radius: 20px;
 }
 
-#registerBtn{
+#registerBtn {
     margin-right: 2vw;
     background-color: var(--color-primary);
     color: var(--color-white);
 }
 
-#registerBtn:active{
+#registerBtn:hover {
+    background-color: var(--color-accent-1);
+}
+
+#registerBtn:active {
     background-color: var(--color-neutral);
     color: var(--color-primary);
 }
@@ -64,7 +68,11 @@
     color: var(--color-primary);
 }
 
-#loginBtn:active{
+#loginBtn:hover {
+    background-color: var(--color-accent-1);
+}
+
+#loginBtn:active {
     background-color: var(--color-primary);
     color: var(--color-white);
 }
