@@ -1,0 +1,471 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "User1",
+      "lastName": "Test1",
+      "email": "user1@example.com",
+      "phone": "555000001",
+      "password": "User1@123",
+      "userType": "Owner"
+    },
+    {
+      "id": 2,
+      "firstName": "User2",
+      "lastName": "Test2",
+      "email": "user2@example.com",
+      "phone": "555000002",
+      "password": "User2@123",
+      "userType": "Coworker"
+    },
+    {
+      "id": 3,
+      "firstName": "User3",
+      "lastName": "Test3",
+      "email": "user3@example.com",
+      "phone": "555000003",
+      "password": "User3@123",
+      "userType": "Owner"
+    },
+    {
+      "id": 4,
+      "firstName": "User4",
+      "lastName": "Test4",
+      "email": "user4@example.com",
+      "phone": "555000004",
+      "password": "User4@123",
+      "userType": "Coworker"
+    },
+    {
+      "id": 5,
+      "firstName": "User5",
+      "lastName": "Test5",
+      "email": "user5@example.com",
+      "phone": "555000005",
+      "password": "User5@123",
+      "userType": "Owner"
+    }
+  ],
+  "properties": [
+    {
+      "propertyId": "1-1",
+      "ownerId": 1,
+      "name": "Property 1-1",
+      "address": "101 Main St, City 1",
+      "neighborhood": "Neighborhood 1",
+      "squareFootage": "1100",
+      "parking": "No",
+      "transit": "Yes",
+      "photoNames": [
+        "property_1-1.jpg"
+      ],
+      "notes": "Sample notes for property 1-1"
+    },
+    {
+      "propertyId": "1-2",
+      "ownerId": 1,
+      "name": "Property 1-2",
+      "address": "102 Main St, City 1",
+      "neighborhood": "Neighborhood 2",
+      "squareFootage": "1200",
+      "parking": "Yes",
+      "transit": "No",
+      "photoNames": [
+        "property_1-2.jpg"
+      ],
+      "notes": "Sample notes for property 1-2"
+    },
+    {
+      "propertyId": "2-1",
+      "ownerId": 2,
+      "name": "Property 2-1",
+      "address": "101 Main St, City 2",
+      "neighborhood": "Neighborhood 1",
+      "squareFootage": "1100",
+      "parking": "No",
+      "transit": "Yes",
+      "photoNames": [
+        "property_2-1.jpg"
+      ],
+      "notes": "Sample notes for property 2-1"
+    },
+    {
+      "propertyId": "2-2",
+      "ownerId": 2,
+      "name": "Property 2-2",
+      "address": "102 Main St, City 2",
+      "neighborhood": "Neighborhood 2",
+      "squareFootage": "1200",
+      "parking": "Yes",
+      "transit": "No",
+      "photoNames": [
+        "property_2-2.jpg"
+      ],
+      "notes": "Sample notes for property 2-2"
+    },
+    {
+      "propertyId": "2-3",
+      "ownerId": 2,
+      "name": "Property 2-3",
+      "address": "103 Main St, City 2",
+      "neighborhood": "Neighborhood 3",
+      "squareFootage": "1300",
+      "parking": "No",
+      "transit": "Yes",
+      "photoNames": [
+        "property_2-3.jpg"
+      ],
+      "notes": "Sample notes for property 2-3"
+    },
+    {
+      "propertyId": "3-1",
+      "ownerId": 3,
+      "name": "Property 3-1",
+      "address": "101 Main St, City 3",
+      "neighborhood": "Neighborhood 1",
+      "squareFootage": "1100",
+      "parking": "No",
+      "transit": "Yes",
+      "photoNames": [
+        "property_3-1.jpg"
+      ],
+      "notes": "Sample notes for property 3-1"
+    },
+    {
+      "propertyId": "4-1",
+      "ownerId": 4,
+      "name": "Property 4-1",
+      "address": "101 Main St, City 4",
+      "neighborhood": "Neighborhood 1",
+      "squareFootage": "1100",
+      "parking": "No",
+      "transit": "Yes",
+      "photoNames": [
+        "property_4-1.jpg"
+      ],
+      "notes": "Sample notes for property 4-1"
+    },
+    {
+      "propertyId": "4-2",
+      "ownerId": 4,
+      "name": "Property 4-2",
+      "address": "102 Main St, City 4",
+      "neighborhood": "Neighborhood 2",
+      "squareFootage": "1200",
+      "parking": "Yes",
+      "transit": "No",
+      "photoNames": [
+        "property_4-2.jpg"
+      ],
+      "notes": "Sample notes for property 4-2"
+    },
+    {
+      "propertyId": "5-1",
+      "ownerId": 5,
+      "name": "Property 5-1",
+      "address": "101 Main St, City 5",
+      "neighborhood": "Neighborhood 1",
+      "squareFootage": "1100",
+      "parking": "No",
+      "transit": "Yes",
+      "photoNames": [
+        "property_5-1.jpg"
+      ],
+      "notes": "Sample notes for property 5-1"
+    },
+    {
+      "propertyId": "5-2",
+      "ownerId": 5,
+      "name": "Property 5-2",
+      "address": "102 Main St, City 5",
+      "neighborhood": "Neighborhood 2",
+      "squareFootage": "1200",
+      "parking": "Yes",
+      "transit": "No",
+      "photoNames": [
+        "property_5-2.jpg"
+      ],
+      "notes": "Sample notes for property 5-2"
+    },
+    {
+      "propertyId": "5-3",
+      "ownerId": 5,
+      "name": "Property 5-3",
+      "address": "103 Main St, City 5",
+      "neighborhood": "Neighborhood 3",
+      "squareFootage": "1300",
+      "parking": "No",
+      "transit": "Yes",
+      "photoNames": [
+        "property_5-3.jpg"
+      ],
+      "notes": "Sample notes for property 5-3"
+    }
+  ],
+  "workspaces": [
+    {
+      "workspaceId": "1-1-ws1",
+      "propertyId": "1-1",
+      "name": "Workspace 1 in Property 1-1",
+      "type": "Desk",
+      "capacity": 1,
+      "smoking": "No",
+      "availableFrom": "2025-09-01",
+      "leaseTerm": "Per Day",
+      "price": 25,
+      "notes": "Workspace 1 details."
+    },
+    {
+      "workspaceId": "1-1-ws2",
+      "propertyId": "1-1",
+      "name": "Workspace 2 in Property 1-1",
+      "type": "Private Office",
+      "capacity": 4,
+      "smoking": "No",
+      "availableFrom": "2025-09-01",
+      "leaseTerm": "Per Week",
+      "price": 100,
+      "notes": "Workspace 2 details."
+    },
+    {
+      "workspaceId": "1-2-ws1",
+      "propertyId": "1-2",
+      "name": "Workspace 1 in Property 1-2",
+      "type": "Desk",
+      "capacity": 1,
+      "smoking": "No",
+      "availableFrom": "2025-09-01",
+      "leaseTerm": "Per Day",
+      "price": 25,
+      "notes": "Workspace 1 details."
+    },
+    {
+      "workspaceId": "1-2-ws2",
+      "propertyId": "1-2",
+      "name": "Workspace 2 in Property 1-2",
+      "type": "Private Office",
+      "capacity": 4,
+      "smoking": "No",
+      "availableFrom": "2025-09-01",
+      "leaseTerm": "Per Week",
+      "price": 100,
+      "notes": "Workspace 2 details."
+    },
+    {
+      "workspaceId": "2-1-ws1",
+      "propertyId": "2-1",
+      "name": "Workspace 1 in Property 2-1",
+      "type": "Desk",
+      "capacity": 1,
+      "smoking": "No",
+      "availableFrom": "2025-09-01",
+      "leaseTerm": "Per Day",
+      "price": 25,
+      "notes": "Workspace 1 details."
+    },
+    {
+      "workspaceId": "2-1-ws2",
+      "propertyId": "2-1",
+      "name": "Workspace 2 in Property 2-1",
+      "type": "Private Office",
+      "capacity": 4,
+      "smoking": "No",
+      "availableFrom": "2025-09-01",
+      "leaseTerm": "Per Week",
+      "price": 100,
+      "notes": "Workspace 2 details."
+    },
+    {
+      "workspaceId": "2-2-ws1",
+      "propertyId": "2-2",
+      "name": "Workspace 1 in Property 2-2",
+      "type": "Desk",
+      "capacity": 1,
+      "smoking": "No",
+      "availableFrom": "2025-09-01",
+      "leaseTerm": "Per Day",
+      "price": 25,
+      "notes": "Workspace 1 details."
+    },
+    {
+      "workspaceId": "2-2-ws2",
+      "propertyId": "2-2",
+      "name": "Workspace 2 in Property 2-2",
+      "type": "Private Office",
+      "capacity": 4,
+      "smoking": "No",
+      "availableFrom": "2025-09-01",
+      "leaseTerm": "Per Week",
+      "price": 100,
+      "notes": "Workspace 2 details."
+    },
+    {
+      "workspaceId": "2-3-ws1",
+      "propertyId": "2-3",
+      "name": "Workspace 1 in Property 2-3",
+      "type": "Desk",
+      "capacity": 1,
+      "smoking": "No",
+      "availableFrom": "2025-09-01",
+      "leaseTerm": "Per Day",
+      "price": 25,
+      "notes": "Workspace 1 details."
+    },
+    {
+      "workspaceId": "2-3-ws2",
+      "propertyId": "2-3",
+      "name": "Workspace 2 in Property 2-3",
+      "type": "Private Office",
+      "capacity": 4,
+      "smoking": "No",
+      "availableFrom": "2025-09-01",
+      "leaseTerm": "Per Week",
+      "price": 100,
+      "notes": "Workspace 2 details."
+    },
+    {
+      "workspaceId": "3-1-ws1",
+      "propertyId": "3-1",
+      "name": "Workspace 1 in Property 3-1",
+      "type": "Desk",
+      "capacity": 1,
+      "smoking": "No",
+      "availableFrom": "2025-09-01",
+      "leaseTerm": "Per Day",
+      "price": 25,
+      "notes": "Workspace 1 details."
+    },
+    {
+      "workspaceId": "3-1-ws2",
+      "propertyId": "3-1",
+      "name": "Workspace 2 in Property 3-1",
+      "type": "Private Office",
+      "capacity": 4,
+      "smoking": "No",
+      "availableFrom": "2025-09-01",
+      "leaseTerm": "Per Week",
+      "price": 100,
+      "notes": "Workspace 2 details."
+    },
+    {
+      "workspaceId": "4-1-ws1",
+      "propertyId": "4-1",
+      "name": "Workspace 1 in Property 4-1",
+      "type": "Desk",
+      "capacity": 1,
+      "smoking": "No",
+      "availableFrom": "2025-09-01",
+      "leaseTerm": "Per Day",
+      "price": 25,
+      "notes": "Workspace 1 details."
+    },
+    {
+      "workspaceId": "4-1-ws2",
+      "propertyId": "4-1",
+      "name": "Workspace 2 in Property 4-1",
+      "type": "Private Office",
+      "capacity": 4,
+      "smoking": "No",
+      "availableFrom": "2025-09-01",
+      "leaseTerm": "Per Week",
+      "price": 100,
+      "notes": "Workspace 2 details."
+    },
+    {
+      "workspaceId": "4-2-ws1",
+      "propertyId": "4-2",
+      "name": "Workspace 1 in Property 4-2",
+      "type": "Desk",
+      "capacity": 1,
+      "smoking": "No",
+      "availableFrom": "2025-09-01",
+      "leaseTerm": "Per Day",
+      "price": 25,
+      "notes": "Workspace 1 details."
+    },
+    {
+      "workspaceId": "4-2-ws2",
+      "propertyId": "4-2",
+      "name": "Workspace 2 in Property 4-2",
+      "type": "Private Office",
+      "capacity": 4,
+      "smoking": "No",
+      "availableFrom": "2025-09-01",
+      "leaseTerm": "Per Week",
+      "price": 100,
+      "notes": "Workspace 2 details."
+    },
+    {
+      "workspaceId": "5-1-ws1",
+      "propertyId": "5-1",
+      "name": "Workspace 1 in Property 5-1",
+      "type": "Desk",
+      "capacity": 1,
+      "smoking": "No",
+      "availableFrom": "2025-09-01",
+      "leaseTerm": "Per Day",
+      "price": 25,
+      "notes": "Workspace 1 details."
+    },
+    {
+      "workspaceId": "5-1-ws2",
+      "propertyId": "5-1",
+      "name": "Workspace 2 in Property 5-1",
+      "type": "Private Office",
+      "capacity": 4,
+      "smoking": "No",
+      "availableFrom": "2025-09-01",
+      "leaseTerm": "Per Week",
+      "price": 100,
+      "notes": "Workspace 2 details."
+    },
+    {
+      "workspaceId": "5-2-ws1",
+      "propertyId": "5-2",
+      "name": "Workspace 1 in Property 5-2",
+      "type": "Desk",
+      "capacity": 1,
+      "smoking": "No",
+      "availableFrom": "2025-09-01",
+      "leaseTerm": "Per Day",
+      "price": 25,
+      "notes": "Workspace 1 details."
+    },
+    {
+      "workspaceId": "5-2-ws2",
+      "propertyId": "5-2",
+      "name": "Workspace 2 in Property 5-2",
+      "type": "Private Office",
+      "capacity": 4,
+      "smoking": "No",
+      "availableFrom": "2025-09-01",
+      "leaseTerm": "Per Week",
+      "price": 100,
+      "notes": "Workspace 2 details."
+    },
+    {
+      "workspaceId": "5-3-ws1",
+      "propertyId": "5-3",
+      "name": "Workspace 1 in Property 5-3",
+      "type": "Desk",
+      "capacity": 1,
+      "smoking": "No",
+      "availableFrom": "2025-09-01",
+      "leaseTerm": "Per Day",
+      "price": 25,
+      "notes": "Workspace 1 details."
+    },
+    {
+      "workspaceId": "5-3-ws2",
+      "propertyId": "5-3",
+      "name": "Workspace 2 in Property 5-3",
+      "type": "Private Office",
+      "capacity": 4,
+      "smoking": "No",
+      "availableFrom": "2025-09-01",
+      "leaseTerm": "Per Week",
+      "price": 100,
+      "notes": "Workspace 2 details."
+    }
+  ]
+}
