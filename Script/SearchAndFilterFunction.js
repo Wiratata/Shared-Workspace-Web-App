@@ -158,3 +158,54 @@ $('#searchLocation').on('keypress', function (e) {
 
 renderWorkspaceList(dummyDatabase);
 });
+
+
+
+// Function to sort and re-render properties by selected criteria
+function sortProperties(criteria) {
+    dummyDatabase.sort((a, b) => {
+        if (criteria === 'location') {
+            return a.location.localeCompare(b.location);
+        } else {
+            return (a[criteria] || 0) - (b[criteria] || 0);
+        }
+    });
+    renderProperties(dummyDatabase); // Re-render with sorted data
+}
+
+// Add event listener to dropdown (if exists on page)
+document.addEventListener("DOMContentLoaded", function () {
+    const sortDropdown = document.getElementById("sortBy");
+    if (sortDropdown) {
+        sortDropdown.addEventListener("change", function () {
+            sortProperties(this.value);
+        });
+    }
+});
+
+
+
+// Function to delete a workspace by index
+function deleteProperty(index) {
+    if (index >= 0 && index < dummyDatabase.length) {
+        dummyDatabase.splice(index, 1);
+        renderProperties(dummyDatabase); // Re-render after deletion
+    }
+}
+
+// Modify renderProperties to include delete buttons
+function renderProperties(data) {
+    const listContainer = document.getElementById("propertyList");
+    if (!listContainer) return;
+
+    listContainer.innerHTML = "";
+
+    data.forEach((property, index) => {
+        const item = document.createElement("li");
+        item.innerHTML = \`
+            <strong>\${property.name}</strong> - \${property.location} - \$\${property.price}
+            <button onclick="deleteProperty(\${index})">Delete</button>
+        \`;
+        listContainer.appendChild(item);
+    });
+}
