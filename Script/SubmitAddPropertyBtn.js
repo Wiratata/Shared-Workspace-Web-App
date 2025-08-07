@@ -2,7 +2,12 @@ $(() => {
     $('#addPropertyForm').on('submit', function(e) {
         e.preventDefault();
 
+        const db = JSON.parse(localStorage.getItem('coworkingDB')) || { properties: [] };
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
         const property = {
+            propertyId: `prop_${Date.now()}`, // Unique ID
+            ownerId: currentUser.id,   
             name: $('#propertyName').val(),
             address: $('#address').val(),
             neighborhood: $('#neighborhood').val(),
@@ -13,22 +18,16 @@ $(() => {
             photoNames: []
         };
 
-        const files = $('#photos')[0].files;
+        const files = $('#photos')[0]?.files || [];
         for (let i = 0; i < files.length; i++) {
             property.photoNames.push(files[i].name);
         }
 
-        const existing = JSON.parse(localStorage.getItem('properties')) || [];
-
-        existing.push(property);
-
-        localStorage.setItem('properties', JSON.stringify(existing));
+        db.properties.push(property);
+        localStorage.setItem('coworkingDB', JSON.stringify(db));
 
         console.log("Added Property:", property);
-
-        console.log("All Properties:", existing);
-
         alert('Property saved!');
-        $('#addPropertyForm')[0].reset();
+        window.location.href = './OwnerDashboardPage.html';
     });
 });
