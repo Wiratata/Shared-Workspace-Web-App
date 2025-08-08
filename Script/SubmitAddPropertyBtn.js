@@ -6,7 +6,7 @@ $(() => {
         const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
         const property = {
-            propertyId: `prop_${Date.now()}`, // Unique ID
+            propertyId: `prop_${Date.now()}`,
             ownerId: currentUser.id,   
             name: $('#propertyName').val(),
             address: $('#address').val(),
