@@ -1,3 +1,5 @@
+
+
 $(() => {
   const $form = $(`
     <div id="registerSection">
@@ -30,69 +32,48 @@ $(() => {
   $('body').append($form);
 
   $(() => {
-  const coworkingDB = JSON.parse(localStorage.getItem('coworkingDB'));
+  $('#registerForm').on('submit', async function (e) {
+    e.preventDefault();
 
-  if (coworkingDB && coworkingDB.users) {
-    // Load users from coworkingDB only
-    users = coworkingDB.users;
-  } else {
-    // If not found, load from JSON and store in localStorage
-    fetch('Data/full_coworking_database.json')
-      .then(res => res.json())
-      .then(data => {
-        users = data.users;
-        localStorage.setItem('coworkingDB', JSON.stringify(data));
-      })
-      .catch(() => {
-        users = [];
-        alert("⚠️ Could not load user database.");
-      });
-  }
-
-
-  $('#registerForm').on('submit', function (e) {
-      e.preventDefault();
+    const url = "http://localhost:3000";
 
     const user = {
       firstName: $('#firstName').val().trim(),
       lastName: $('#lastName').val().trim(),
       email: $('#email').val().trim().toLowerCase(),
-      phone: $('#phone').val().trim(),
+      phoneNumber: $('#phone').val().trim(),
       password: $('#password').val(),
+      confirmPassword: $('#confirmPassword').val(),
       userType: $('#userType').val()
     };
-    console.log(user);
+
     const confirmPassword = $('#confirmPassword').val();
     if (user.password !== confirmPassword) {
       alert("❌ Passwords do not match!");
       return;
     }
 
-    // Get latest DB from localStorage
-    let coworkingDB = JSON.parse(localStorage.getItem('coworkingDB')) || { users: [] };
-    coworkingDB.users = coworkingDB.users || [];
+    try {
+      const response = await fetch(`${url}/register`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: JSON.stringify(user)
+      });
 
-    // Email check
-    const emailExists = coworkingDB.users.some(u => u.email === user.email);
-    if (emailExists) {
-      alert("❌ Email already registered.");
-      return;
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Registration failed");
+      }
+
+      alert("✅ Account created. Now you can log in.");
+      window.location.href = 'LoginPage.html';
+    } catch (error) {
+      alert("❌ " + error.message);
     }
-
-    // Generate unique ID
-    user.id = coworkingDB.users.length
-      ? Math.max(...coworkingDB.users.map(u => u.id)) + 1
-      : 1001;
-
-    // Add to coworkingDB
-    coworkingDB.users.push(user);
-    localStorage.setItem('coworkingDB', JSON.stringify(coworkingDB));
-
-    alert("✅ Account created. Now you can log in.");
-    window.location.href = 'LoginPage.html';
   });
 });
-
-  
 
 });

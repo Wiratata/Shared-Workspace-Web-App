@@ -1,34 +1,46 @@
+
 $(() => {
-  $('#loginForm').on('submit', function (e) {
+  $('#loginForm').on('submit', async (e) => {
     e.preventDefault();
 
     const email = $('#loginEmail').val().trim().toLowerCase();
     const password = $('#loginPassword').val();
+    const url = "http://localhost:3000";
 
-    // Get coworkingDB object from localStorage
-    const coworkingDB = JSON.parse(localStorage.getItem('coworkingDB')) || {};
-    const users = coworkingDB.users || [];
+    try {
+      const response = await fetch(`${url}/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: JSON.stringify({ email, password }),
+      });
 
-    // Find matching user
-    const user = users.find(u => 
-      u.email.toLowerCase() === email && u.password === password
-    );
+      const data = await response.json();
 
-    if (!user) {
-      alert("⚠️ Invalid email or password.");
-      return;
-    }
+      if (!response.ok) {
+        throw new Error(data.error || "Login failed");
+      }
 
-    // Save current user
-    localStorage.setItem('currentUser', JSON.stringify(user));
+      
+      localStorage.setItem('token', data.token);
 
-    // Redirect based on userType
-    if (user.userType === 'Coworker') {
-      window.location.href = 'CoworkerDashboardPage.html';
-    } else if (user.userType === 'Owner') {
-      window.location.href = 'OwnerDashboardPage.html';
-    } else {
-      alert("⚠️ Unknown user type.");
+      
+      const userType = data.userType?.toLowerCase();
+      switch (userType) {
+        case 'coworker':
+          window.location.href = 'CoworkerDashboardPage.html';
+          break;
+        case 'owner':
+          window.location.href = 'OwnerDashboardPage.html';
+          break;
+        default:
+          alert(`⚠️ Unknown user type: ${data.userType}`);
+      }
+
+    } catch (error) {
+      alert(error.message);
+      console.error("Login error:", error);
     }
   });
 });
