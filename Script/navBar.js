@@ -1,6 +1,15 @@
 $(() => {
+    function parseJwt(token) {
+        try {
+            return JSON.parse(atob(token.split('.')[1]));
+        } catch (e) {
+            return null;
+        }
+    }
+
     function renderNavBar() {
-        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        const token = localStorage.getItem('token');
+        const currentUser = token ? parseJwt(token) : null;
 
         const $navBar = $(`
             <div id="navBarContainer">
@@ -29,12 +38,9 @@ $(() => {
         $('#navBarContainer').remove();
         $('body').prepend($navBar);
 
-        // This here check the user and make sure it goes to the right dashboard
         $('#dashboardLink').on('click', () => {
             if (!currentUser) return;
-            const userType = currentUser.userType;
-
-            if (userType === 'Owner') {
+            if (currentUser.userType === 'Owner') {
                 window.location.href = './OwnerDashboardPage.html';
             } else {
                 window.location.href = './CoworkerDashboardPage.html';
@@ -42,7 +48,7 @@ $(() => {
         });
 
         $('#logoutBtn').on('click', () => {
-            localStorage.removeItem('currentUser');
+            localStorage.removeItem('token');
             renderNavBar();
             window.location.href = './LandingPage.html';
         });
