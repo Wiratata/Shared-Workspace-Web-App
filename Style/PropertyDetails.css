@@ -64,3 +64,36 @@
     margin: auto 5vw;
 }
 
+.workspaceCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-white);
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.editBtn, .deleteBtn{
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;  
+}
+.editBtn:hover, .deleteBtn:hover {
+  background-color: var(--color-accent-1);
+}
+.workspaceCard a{
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.emptyMessage {
+  padding: 1.5rem;
+  color: #666;
+  text-align: center;
+}
