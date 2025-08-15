@@ -1,54 +1,59 @@
-
 $(document).ready(function () {
-    let coworkingDB = JSON.parse(localStorage.getItem('coworkingDB')) || { properties: [], workspaces: [] };
-    let properties = coworkingDB.properties || [];
-    let workspaces = coworkingDB.workspaces || [];
+    let workspaces = [];
+    
+    const url = "http://localhost:3000";
+
+
+    async function fetchWorkspaces() {
+        try {
+            const token = localStorage.getItem('token');
+            const res = await fetch(`${url}/workspaces`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (!res.ok) throw new Error('Failed to fetch workspaces');
+            const data = await res.json();
+            workspaces = data;
+            renderWorkspaceList(workspaces);
+        } catch (err) {
+            console.error(err);
+            $('#workspaceList').html('<p style="color:red;">Failed to load workspaces</p>');
+        }
+    }
 
     function renderWorkspaceList(results) {
-  const $list = $('#workspaceList');
-  $list.empty();
+        const $list = $('#workspaceList');
+        $list.empty();
 
-  if (results.length === 0) {
-    $list.append('<p id="filterNoMatch">No workspaces match your search.</p>');
-    return;
-  }
+        if (results.length === 0) {
+            $list.append('<p id="filterNoMatch">No workspaces match your search.</p>');
+            return;
+        }
 
-    results.forEach(item => {
-        const ws = item.workspace;
-        const prop = item.property;
+        results.forEach(item => {
+            const ws = item.workspace;
+            const prop = item.property;
 
-        const $card = $(`
-        <div class="workspaceCard" style="cursor:pointer;" data-workspace-id="${ws.workspaceId}">
-            <h3>${ws.name}</h3>
-            <p><strong>Location:</strong> ${prop.address}</p>
-            <p><strong>Seats:</strong> ${ws.capacity}</p>
-            <p><strong>Smoking:</strong> ${ws.smoking}</p>
-            <p><strong>Parking:</strong> ${prop.parking}</p>
-            <p><strong>Transit:</strong> ${prop.transit}</p>
-            <p><strong>Lease Term:</strong> ${ws.leaseTerm}</p>
-            <p><strong>Price:</strong> $${ws.price}</p>
-        </div>
-        `);
+            const $card = $(`
+                <div class="workspaceCard" style="cursor:pointer;" data-workspace-id="${ws._id}">
+                    <h3>${ws.workspaceName}</h3>
+                    <p><strong>Location:</strong> ${prop.address}</p>
+                    <p><strong>Seats:</strong> ${ws.capacity}</p>
+                    <p><strong>Smoking:</strong> ${ws.smokingAllowed ? 'Yes' : 'No'}</p>
+                    <p><strong>Parking:</strong> ${prop.parkingGarage ? 'Yes' : 'No'}</p>
+                    <p><strong>Transit:</strong> ${prop.publicTransitAccess ? 'Yes' : 'No'}</p>
+                    <p><strong>Lease Term:</strong> ${ws.leaseTerm}</p>
+                    <p><strong>Price:</strong> $${ws.price}</p>
+                </div>
+            `);
 
-        $card.on('click', () => {
-        const coworkingDB = JSON.parse(localStorage.getItem('coworkingDB')) || {};
-        const users = coworkingDB.users || [];
-        const owner = users.find(u => u.id === prop.ownerId) || {};
+            $card.on('click', () => {
+                localStorage.setItem('selectedWorkspaceId', ws._id);
+                localStorage.setItem('selectedPropertyId', prop._id);
+                window.location.href = 'WorkspaceDetailPage.html';
+            });
 
-        localStorage.setItem('selectedWorkspaceDetail', JSON.stringify({
-            workspace: ws,
-            property: prop,
-            owner: {
-            name: owner.firstName + ' ' + owner.lastName,
-            phone: owner.phone
-            }
-        }));
-
-        window.location.href = 'WorkspaceDetailPage.html';
+            $list.append($card);
         });
-
-        $list.append($card);
-    });
     }
 
     function applyFilters() {
@@ -67,37 +72,33 @@ $(document).ready(function () {
         const minSqft = parseFloat($('#minSqft').val()) || 0;
         const maxSqft = parseFloat($('#maxSqft').val()) || Infinity;
 
-        const mapped = workspaces.map(ws => {
-        const prop = properties.find(p => p.propertyId === ws.propertyId);
-        return { workspace: ws, property: prop };
-        });
+        const filtered = workspaces.filter(({ workspace: ws, property: prop }) => {
+            if (!prop) return false;
 
-        const filtered = mapped.filter(({ workspace: ws, property: prop }) => {
-        if (!prop) return false;
-
-        return (
-            (ws.name || '').toLowerCase().includes(name) &&
-            (prop.address || '').toLowerCase().includes(location) &&
-            (ws.price || 0) >= minPrice &&
-            (ws.price || 0) <= maxPrice &&
-            (ws.capacity || 0) >= seats &&
-            (smoking === '' || (ws.smoking || '') === smoking) &&
-            (parking === '' || (prop.parking || '') === parking) &&
-            (transit === '' || (prop.transit || '') === transit) &&
-            (leaseTerm === '' || (ws.leaseTerm || '') === leaseTerm) &&
-            (ws.sqft || 0) >= minSqft &&
-            (ws.sqft || 0) <= maxSqft
-        );
+            return (
+                (ws.workspaceName || '').toLowerCase().includes(name) &&
+                (prop.address || '').toLowerCase().includes(location) &&
+                (ws.price || 0) >= minPrice &&
+                (ws.price || 0) <= maxPrice &&
+                (ws.capacity || 0) >= seats &&
+                (smoking === '' || String(ws.smokingAllowed) === smoking) &&
+                (parking === '' || String(prop.parkingGarage) === parking) &&
+                (transit === '' || String(prop.publicTransitAccess) === transit) &&
+                (leaseTerm === '' || (ws.leaseTerm || '') === leaseTerm) &&
+                (ws.squareFootage || 0) >= minSqft &&
+                (ws.squareFootage || 0) <= maxSqft
+            );
         });
 
         renderWorkspaceList(filtered);
     }
+
     $('#filtersContainer').hide();
     $('#searchContainer').css('margin-bottom', '5vw');
 
     $('#filterBtn').on('click', function () {
         $('#filtersContainer').slideToggle(200, function () {
-        $('#searchContainer').css('margin-bottom', $('#filtersContainer').is(':visible') ? '0.5vw' : '5vw');
+            $('#searchContainer').css('margin-bottom', $('#filtersContainer').is(':visible') ? '0.5vw' : '5vw');
         });
         $('#filterBtn').toggleClass('active');
     });
@@ -116,12 +117,10 @@ $(document).ready(function () {
 
     $('#searchLocation').on('keypress', function (e) {
         if (e.which === 13) {
-        e.preventDefault();
-        applyFilters();
+            e.preventDefault();
+            applyFilters();
         }
     });
 
-    renderWorkspaceList(workspaces.map(ws => {
-        return { workspace: ws, property: properties.find(p => p.propertyId === ws.propertyId) };
-    }));
+    fetchWorkspaces();
 });
