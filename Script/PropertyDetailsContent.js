@@ -160,7 +160,7 @@ $(() => {
         if (!confirm('Are you sure you want to delete this property?')) return;
 
         try {
-            const res = await fetch(`http://localhost:3000/properties/${propertyId}`, {
+            const res = await fetch(`${url}/properties/${propertyId}`, {
             method: 'DELETE',
             headers: { 'Authorization': `Bearer ${token}` }
             });
