@@ -3,7 +3,7 @@ $(document).ready(async function () {
   const workspaceId = localStorage.getItem('selectedWorkspaceId');
   const token = localStorage.getItem('authToken');
 
-  const url = "http://localhost:3000";
+    const url = "https://shared-workspace-web-app-j0iq.onrender.com";
 
   if (!propertyId || !workspaceId) {
     $('body').append('<p>No workspace selected.</p>');

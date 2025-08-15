@@ -117,7 +117,7 @@ $(() => {
     renderProperties(sortedList);
   });
 
-  const url = "http://localhost:3000";
+    const url = "https://shared-workspace-web-app-j0iq.onrender.com";
 
 
   fetch(`${url}/properties`, {

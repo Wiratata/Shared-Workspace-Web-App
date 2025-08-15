@@ -2,7 +2,7 @@ $(() => {
     const propertyId = localStorage.getItem('selectedPropertyId');
     const token = localStorage.getItem('token');
 
-    const url = "http://localhost:3000";
+    const url = "https://shared-workspace-web-app-j0iq.onrender.com";
 
     const $section = $('<div id="propertyDetailSection"></div>');
     $('body').append($section);
