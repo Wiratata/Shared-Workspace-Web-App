@@ -1,4 +1,7 @@
 $(() => {
+  
+  const url = "https://shared-workspace-web-app-j0iq.onrender.com";
+
   function parseJwt(token) {
     if (!token) return null;
     var base64Url = token.split('.')[1];
@@ -83,7 +86,7 @@ $(() => {
           if (confirm('Are you sure you want to delete this property?')) {
 
             try {
-              const res = await fetch(`http://localhost:3000/properties/${propertyId}`, {
+              const res = await fetch(`${url}/properties/${propertyId}`, {
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${token}` }
               });
@@ -117,7 +120,7 @@ $(() => {
     renderProperties(sortedList);
   });
 
-    const url = "https://shared-workspace-web-app-j0iq.onrender.com";
+    
 
 
   fetch(`${url}/properties`, {
