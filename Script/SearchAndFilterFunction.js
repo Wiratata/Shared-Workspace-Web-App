@@ -1,9 +1,8 @@
+import {url} from "./config.js";
+
 $(document).ready(function () {
     let workspaces = [];
     
-    const url = "https://shared-workspace-web-app-j0iq.onrender.com";
-
-
     async function fetchWorkspaces() {
         try {
             const token = localStorage.getItem('token');

@@ -1,4 +1,4 @@
-
+import {url} from "./config.js";
 
 $(() => {
   const $form = $(`
@@ -34,8 +34,6 @@ $(() => {
   $(() => {
   $('#registerForm').on('submit', async function (e) {
     e.preventDefault();
-
-    const url = "https://shared-workspace-web-app-j0iq.onrender.com";
 
     const user = {
       firstName: $('#firstName').val().trim(),

@@ -1,10 +1,10 @@
+import {url} from "./config.js";
+
 $(() => {
     $('#addWorkspaceForm').on('submit', function(e) {
         e.preventDefault();
 
         const propertyId = localStorage.getItem('selectedPropertyId');
-        const url = "https://shared-workspace-web-app-j0iq.onrender.com";
-
 
         if (!propertyId) {
             alert("No property selected to add workspace to.");

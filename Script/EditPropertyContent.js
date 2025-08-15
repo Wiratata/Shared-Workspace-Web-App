@@ -1,3 +1,5 @@
+import {url} from "./config.js";
+
 $(() => {
     const propertyId = localStorage.getItem('selectedPropertyId');
     const token = localStorage.getItem('token');
@@ -10,8 +12,6 @@ $(() => {
       window.location.href = "LoginPage.html";
       return;
     }
-
-    const url = "https://shared-workspace-web-app-j0iq.onrender.com";
 
     fetch(`${url}/properties/${propertyId}`, {
       headers: {

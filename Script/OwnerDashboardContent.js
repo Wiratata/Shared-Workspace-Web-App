@@ -1,7 +1,7 @@
+import {url} from "./config.js";
+
 $(() => {
   
-  const url = "https://shared-workspace-web-app-j0iq.onrender.com";
-
   function parseJwt(token) {
     if (!token) return null;
     var base64Url = token.split('.')[1];

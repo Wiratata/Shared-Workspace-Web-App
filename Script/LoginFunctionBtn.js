@@ -1,3 +1,4 @@
+import {url} from "./config.js";
 
 $(() => {
   $('#loginForm').on('submit', async (e) => {
@@ -5,7 +6,6 @@ $(() => {
 
     const email = $('#loginEmail').val().trim().toLowerCase();
     const password = $('#loginPassword').val();
-    const url = "https://shared-workspace-web-app-j0iq.onrender.com";
 
     try {
       const response = await fetch(`${url}/login`, {
