@@ -96,7 +96,7 @@ $(() => {
             const $card = $(`
                 <div class="workspaceCard">
                 <h4>
-                    <a href="workspaceDetails.html" class="workspaceLink" data-id="${ws._id}">${ws.workspaceName}</a>
+                    <a href="WorkspaceDetailPage.html" class="workspaceLink" data-id="${ws._id}">${ws.workspaceName}</a>
                 </h4>
                 <div class="workspaceBtn">
                     <button class="editBtn" data-id="${ws._id}">Edit</button>
@@ -113,7 +113,7 @@ $(() => {
 
             $card.find('.editBtn').on('click', function () {
                 localStorage.setItem('selectedWorkspaceId', $(this).data('id'));
-                window.location.href = './EditWorkspacePage.html';  // <-- Changed to EditWorkspace page
+                window.location.href = './EditWorkspacePage.html'; 
             });
 
             $card.find('.deleteBtn').on('click', async function () {
@@ -132,7 +132,6 @@ $(() => {
                 }
 
                 alert('Workspace deleted successfully!');
-                // Remove from local list and re-render
                 myWorkspaces = myWorkspaces.filter(w => w._id !== workspaceId);
                 renderWorkspaces(myWorkspaces);
 
@@ -144,11 +143,9 @@ $(() => {
         }
         }
 
-        // Fetch and render workspaces
         myWorkspaces = await fetchWorkspaces();
         renderWorkspaces(myWorkspaces);
 
-        // Buttons handlers for property
         $('#addWorkspaceBtn').click(() => {
         localStorage.setItem('selectedPropertyId', propertyId);
         window.location.href = './AddWorkspaceFormPage.html';
