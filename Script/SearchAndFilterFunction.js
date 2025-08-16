@@ -63,9 +63,9 @@ $(document).ready(function () {
         const maxPrice = parseFloat($('#maxPrice').val()) || Infinity;
 
         const seats = parseInt($('#filterSeats').val()) || 0;
-        const smoking = $('#filterSmoking').val();
-        const parking = $('#filterParking').val();
-        const transit = $('#filterTransit').val();
+        const smoking = $('#filterSmoking').val().toLowerCase();
+        const parking = $('#filterParking').val().toLowerCase();
+        const transit = $('#filterTransit').val().toLowerCase();
         const leaseTerm = $('#filterLease').val();
 
         const minSqft = parseFloat($('#minSqft').val()) || 0;
