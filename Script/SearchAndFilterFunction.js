@@ -80,9 +80,9 @@ $(document).ready(function () {
                 (ws.price || 0) >= minPrice &&
                 (ws.price || 0) <= maxPrice &&
                 (ws.capacity || 0) >= seats &&
-                (smoking === '' || String(ws.smokingAllowed) === smoking) &&
-                (parking === '' || String(prop.parkingGarage) === parking) &&
-                (transit === '' || String(prop.publicTransitAccess) === transit) &&
+                (smoking === '' || (ws.smokingAllowed ? 'yes' : 'no') === smoking) &&
+                (parking === '' || (prop.parkingGarage ? 'yes' : 'no') === parking) &&
+                (transit === '' || (prop.publicTransitAccess ? 'yes' : 'no') === transit) &&
                 (leaseTerm === '' || (ws.leaseTerm || '') === leaseTerm) &&
                 (ws.squareFootage || 0) >= minSqft &&
                 (ws.squareFootage || 0) <= maxSqft
