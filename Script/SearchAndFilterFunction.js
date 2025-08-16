@@ -66,7 +66,7 @@ $(document).ready(function () {
         const smoking = $('#filterSmoking').val().toLowerCase();
         const parking = $('#filterParking').val().toLowerCase();
         const transit = $('#filterTransit').val().toLowerCase();
-        const leaseTerm = $('#filterLease').val();
+        const leaseTerm = $('#filterLease').val().toLowerCase();
 
         const minSqft = parseFloat($('#minSqft').val()) || 0;
         const maxSqft = parseFloat($('#maxSqft').val()) || Infinity;
@@ -83,9 +83,9 @@ $(document).ready(function () {
                 (smoking === '' || (ws.smokingAllowed ? 'yes' : 'no') === smoking) &&
                 (parking === '' || (prop.parkingGarage ? 'yes' : 'no') === parking) &&
                 (transit === '' || (prop.publicTransitAccess ? 'yes' : 'no') === transit) &&
-                (leaseTerm === '' || (ws.leaseTerm || '') === leaseTerm) &&
-                (ws.squareFootage || 0) >= minSqft &&
-                (ws.squareFootage || 0) <= maxSqft
+                (leaseTerm === '' || (ws.leaseTerm || '').toLowerCase() === leaseTerm) &&
+                (prop.squareFootage || 0) >= minSqft &&
+                (prop.squareFootage || 0) <= maxSqft
             );
         });
 
