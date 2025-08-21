@@ -15,7 +15,10 @@ $(() => {
         </div>
 
         <div id="recomendationContainer">
-            <img id="bgPicture" src="Images/coworking background.jpg" alt="backgroundCoworking">
+            <video id="bgPicture" autoplay muted playsinline>
+                <source src="Images/Loop Video.mp4" type="video/mp4">
+            </video>
+
             <div id="blackShape"></div>
             <div id="recomendationContent">
                 <h2 id="recomendationTitle">Find Your Perfect Workspace, Anytime, Anywhere</h2>
@@ -51,4 +54,18 @@ $(() => {
         </div>
         `)
     $(`body`).append($landingPageContent);
+
+    const videoElement = document.getElementById("bgPicture");
+
+    function loopVideo() {
+        if (videoElement.currentTime >= videoElement.duration - 0.05) {
+            videoElement.currentTime = 0;
+            videoElement.play();
+        }
+        requestAnimationFrame(loopVideo);
+    }
+
+    // Start looping
+    videoElement.play();
+    requestAnimationFrame(loopVideo);
 })
